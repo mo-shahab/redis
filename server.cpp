@@ -165,6 +165,9 @@ enum {
     ERR_TOO_BIG = 2,    // response too big
     ERR_BAD_TYP = 3,    // unexpected value type
     ERR_BAD_ARG = 4,    // bad arguments
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 };
 
@@ -264,6 +267,7 @@ static void entry_del(Entry *ent) {
         zset_clear(&ent->zset);
     }
     delete ent;
+<<<<<<< Updated upstream
 }
 
 struct LookupKey {
@@ -287,6 +291,25 @@ static void do_get(std::vector<std::string> &cmd, Buffer &out) {
     // a dummy struct just for the lookup
     LookupKey key;
 >>>>>>> Stashed changes
+=======
+}
+
+struct LookupKey {
+    struct HNode node;  // hashtable node
+    std::string key;
+};
+
+// equality comparison for the top-level hashstable
+static bool entry_eq(HNode *node, HNode *key) {
+    struct Entry *ent = container_of(node, struct Entry, node);
+    struct LookupKey *keydata = container_of(key, struct LookupKey, node);
+    return ent->key == keydata->key;
+}
+
+static void do_get(std::vector<std::string> &cmd, Buffer &out) {
+    // a dummy struct just for the lookup
+    LookupKey key;
+>>>>>>> Stashed changes
     key.key.swap(cmd[1]);
     key.node.hcode = str_hash((uint8_t *)key.key.data(), key.key.size());
     // hashtable lookup
@@ -297,6 +320,7 @@ static void do_get(std::vector<std::string> &cmd, Buffer &out) {
     }
     // copy the value
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     const std::string &val = container_of(node, Entry, node)->val;
     assert(val.size() <= k_max_msg);
     out.data.assign(val.begin(), val.end());
@@ -306,6 +330,8 @@ static void do_set(std::vector<std::string> &cmd, Response &) {
     // a dummy `Entry` just for the lookup
     Entry key;
 =======
+=======
+>>>>>>> Stashed changes
     Entry *ent = container_of(node, Entry, node);
     if (ent->type != T_STR) {
         return out_err(out, ERR_BAD_TYP, "not a string value");
@@ -316,6 +342,9 @@ static void do_set(std::vector<std::string> &cmd, Response &) {
 static void do_set(std::vector<std::string> &cmd, Buffer &out) {
     // a dummy struct just for the lookup
     LookupKey key;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     key.key.swap(cmd[1]);
     key.node.hcode = str_hash((uint8_t *)key.key.data(), key.key.size());
@@ -339,9 +368,15 @@ static void do_set(std::vector<std::string> &cmd, Buffer &out) {
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 static void do_del(std::vector<std::string> &cmd, Response &) {
     // a dummy `Entry` just for the lookup
     Entry key;
+=======
+static void do_del(std::vector<std::string> &cmd, Buffer &out) {
+    // a dummy struct just for the lookup
+    LookupKey key;
+>>>>>>> Stashed changes
 =======
 static void do_del(std::vector<std::string> &cmd, Buffer &out) {
     // a dummy struct just for the lookup
@@ -514,6 +549,9 @@ static void do_request(std::vector<std::string> &cmd, Buffer &out) {
         return do_zscore(cmd, out);
     } else if (cmd.size() == 6 && cmd[0] == "zquery") {
         return do_zquery(cmd, out);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     } else {
         out.status = RES_ERR;       // unrecognized command
