@@ -1,6 +1,7 @@
 /*
  
     install hiredis
+    g++ -o hiredis hiredis.cpp -lhiredis
 
 */
 
