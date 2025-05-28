@@ -4,6 +4,7 @@
 // proj
 #include "zset.h"
 #include "common.h"
+#include "avl.h"
 
 
 static ZNode *znode_new(const char *name, size_t len, double score) {

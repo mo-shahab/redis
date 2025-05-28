@@ -1,0 +1,18 @@
+Available files:
+-rw-r--r-- 1 shahab users  5425 May 23 12:13 avl.cpp
+-rw-r--r-- 1 shahab users   670 May 23 12:13 avl.h
+-rw-r--r-- 1 shahab users  3212 May 23 12:13 client.cpp
+-rw-r--r-- 1 shahab users   471 May 23 12:32 common.h
+-rw-r--r-- 1 shahab users  4164 May 23 12:34 hashtable.cpp
+-rw-r--r-- 1 shahab users   908 May 23 12:34 hashtable.h
+-rw-r--r-- 1 shahab users  1424 May 23 12:19 heap.cpp
+-rw-r--r-- 1 shahab users   180 May 23 12:19 heap.h
+-rw-r--r-- 1 shahab users   605 May 23 12:18 list.h
+-rw-r--r-- 1 shahab users 26795 May 23 12:18 server.cpp
+-rw-r--r-- 1 shahab users  1854 May 23 12:13 test_offset.cpp
+-rw-r--r-- 1 shahab users  1168 May 23 12:20 thread_pool.cpp
+-rw-r--r-- 1 shahab users   431 May 23 12:20 thread_pool.h
+-rw-r--r-- 1 shahab users  4642 May 23 12:13 zset.cpp
+-rw-r--r-- 1 shahab users   659 May 23 12:13 zset.h
+Compiling server...
+Server compilation failed.
